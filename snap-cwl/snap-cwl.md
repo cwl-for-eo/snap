@@ -8,7 +8,7 @@ The examples rely on a simple SNAP graph applying the `Calibration` operator to 
 
 ```xml
 --8<--
-sar-calibration.xml
+snap/snap-cwl/sar-calibration.xml
 --8<--
 ```
 
@@ -28,7 +28,7 @@ SNAP `gpt` is wrapped as a CWL `CommandLineTool` with:
 
 ```yaml
 --8<--
-snap/snap-cwl/sar-calibration-clt.cwl
+snap/snap-cwl/sar-calibration-clt-file.cwl
 --8<--
 ```
 
@@ -75,6 +75,12 @@ The CWL parameters file to run this CWL document contains:
 --8<--
 snap/snap-cwl/sar-calibration-file.yml
 --8<--
+```
+
+The execution is triggered with:
+
+```console
+cwltool sar-calibration-file.cwl sar-calibration-file.yml
 ```
 
 ## Graph inline

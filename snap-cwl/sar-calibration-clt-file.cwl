@@ -1,9 +1,14 @@
 class: CommandLineTool
 id: sar-calibration
+
 requirements:
   DockerRequirement:
-    dockerPull: docker.io/snap-gpt
-  
+    dockerPull: snap-gpt
+  EnvVarRequirement:
+    envDef:
+      PATH: /srv/conda/envs/env_snap/snap/bin:/usr/share/java/maven/bin:/usr/share/java/maven/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+  ResourceRequirement: {}
+
 baseCommand: gpt
   
 inputs:
@@ -33,11 +38,6 @@ outputs:
       glob: .
     type: Directory
   
-requirements:
-  EnvVarRequirement:
-    envDef:
-      PATH: /srv/conda/envs/env_snap/snap/bin:/usr/share/java/maven/bin:/usr/share/java/maven/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-  ResourceRequirement: {}
 
 stderr: std.err
 stdout: std.out

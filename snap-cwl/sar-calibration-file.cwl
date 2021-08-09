@@ -19,7 +19,7 @@ $graph:
     safe:
       doc: Sentinel-1 GRD product SAFE Directory
       label: Sentinel-1 GRD product SAFE Directory
-      type: Directory[]
+      type: Directory
   
   outputs:
   - id: wf_outputs
@@ -43,9 +43,14 @@ $graph:
 
 - class: CommandLineTool
   id: sar-calibration
+  
   requirements:
     DockerRequirement:
-      dockerPull: docker.io/snap-gpt
+      dockerPull: snap-gpt
+    EnvVarRequirement:
+      envDef:
+        PATH: /srv/conda/envs/env_snap/snap/bin:/usr/share/java/maven/bin:/usr/share/java/maven/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+    ResourceRequirement: {}
   
   baseCommand: gpt
   
@@ -75,14 +80,7 @@ $graph:
         glob: .
       type: Directory
   
-  requirements:
-    EnvVarRequirement:
-      envDef:
-        PATH: /srv/conda/envs/env_snap/snap/bin:/usr/share/java/maven/bin:/usr/share/java/maven/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-    ResourceRequirement: {}
-
   stderr: std.err
   stdout: std.out
-
 
 cwlVersion: v1.0
