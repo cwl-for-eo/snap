@@ -28,7 +28,7 @@ SNAP `gpt` is wrapped as a CWL `CommandLineTool` with:
 
 ```yaml
 --8<--
-sar-calibration-clt.cwl
+snap/snap-cwl/sar-calibration-clt.cwl
 --8<--
 ```
 
@@ -65,17 +65,16 @@ It is a best practice to create a CWL Workflow to wrap the `CommandLineTool`:
 
 ```yaml
 --8<--
-sar-calibration-file.cwl
+snap/snap-cwl/sar-calibration-file.cwl
 --8<--
 ```
 
 The CWL parameters file to run this CWL document contains:
 
 ```yaml
-polarization: 'VV'
-snap_graph: {class: File, path: ./sar-calibration.xml}
-safe:
-- {'class': 'Directory', 'path': './S1A_IW_GRDH_1SDV_20210615T050457_20210615T050522_038346_048680_F42E.SAFE'} 
+--8<--
+snap/snap-cwl/sar-calibration-file.yml
+--8<--
 ```
 
 ## Graph inline
