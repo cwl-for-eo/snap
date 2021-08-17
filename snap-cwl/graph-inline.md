@@ -13,7 +13,7 @@ The file `graph.xml` is created before executing the CommandLineTool. This appro
 
 This approach removes the `File` parameter used in the previous section and provides a self-standing CWL document:
 
-```yaml hl_lines="11-54"
+```yaml hl_lines="11-54" linenums="1"
 --8<--
 snap/snap-cwl/sar-calibration-clt-inline.cwl
 --8<--
@@ -21,10 +21,12 @@ snap/snap-cwl/sar-calibration-clt-inline.cwl
 
 The `baseCommand` is updated to add the `calibration.xml` argument:
 
-```yaml hl_lines="56-56"
---8<--
-snap/snap-cwl/sar-calibration-clt-inline.cwl
---8<--
+```yaml hl_lines="3-3" linenums="54"
+   </graph>
+
+baseCommand: [gpt, calibration.xml]
+ 
+inputs:
 ```
 
 The Workflow is updated accordingly: 
