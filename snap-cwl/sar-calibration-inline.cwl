@@ -11,11 +11,6 @@ $graph:
       label: Polarization channel 
       type: string
 
-    snap_graph:
-      doc: SNAP Graph
-      label: SNAP Graph
-      type: File
-
     safe:
       doc: Sentinel-1 GRD product SAFE Directory
       label: Sentinel-1 GRD product SAFE Directory
@@ -36,7 +31,6 @@ $graph:
       in:
         snap_graph: snap_graph
         polarization: polarization
-        safe: safe
       out:
       - results
       run: '#sar-calibration'
@@ -99,11 +93,6 @@ $graph:
   baseCommand: [gpt, calibration.xml]
   
   inputs:
-
-    snap_graph:
-      inputBinding:
-        position: 1
-      type: File
 
     polarization:
       inputBinding:
