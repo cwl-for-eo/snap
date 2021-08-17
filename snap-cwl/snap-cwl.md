@@ -17,10 +17,16 @@ This SNAP graph contains parameters:
 - `${inFile}` is the path to the Sentinel-1 `manifest.xml` file. This parameter is used in the `Read` Operator
 - `${selPol}` is the selected polarization and thus leaving an option to process `VV` or `VH` (typically). This parameter is used in the `Calibration` Operator
 
-Below there are two approaches described to process this graph using CWL:
+CWL is used to wrap the SNAP `gpt` executable:
+
+```console
+gpt sar-calibration.xml -PselPol=${selPol} -PinFile=${inFile}
+```
+
+There are two approaches described to process this graph using CWL:
 
 - The SNAP graph is a local file and thus passed to CWL as a File (as a reference)
-- The SNAP graph XML content is part of the CWL (included as a value)
+- The SNAP graph XML content is part of the CWL (included as a value) 
 
 ## Graph as a File 
 
