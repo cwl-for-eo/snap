@@ -32,3 +32,8 @@ inputs:
 The Workflow is updated accordingly: 
 
 
+```yaml linenums="1"
+--8<--
+snap/snap-cwl/sar-calibration-inline.cwl
+--8<--
+```
